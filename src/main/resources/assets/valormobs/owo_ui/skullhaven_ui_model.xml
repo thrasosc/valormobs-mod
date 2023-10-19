@@ -1,0 +1,43 @@
+<owo-ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/wisp-forest/owo-lib/1.20/owo-ui.xsd">
+    <components>
+        <flow-layout direction="vertical">
+            <children>
+                <flow-layout direction="horizontal">
+                    <children>
+                        <button id="next-button">
+                            <text>🗙</text>
+                            <tooltip-text>Close</tooltip-text>
+                            <positioning type="relative">1,1</positioning>
+                        </button>
+                        <entity type="valormobs:gollum">
+                            <sizing>
+                                <horizontal method="fixed">100</horizontal>
+                                <vertical method="fixed">100</vertical>
+                            </sizing>
+                            <look-at-cursor>true</look-at-cursor>
+                            <scale-to-fit>true</scale-to-fit>
+                            <tooltip-text>Gollum</tooltip-text>
+                        </entity>
+                        <label>
+                            <text translate="true">text.valormobs.skullhaven</text>
+                            <max-width>400</max-width>
+                            <horizontal-text-alignment>left</horizontal-text-alignment>
+                        </label>
+                    </children>
+                    <positioning type="relative">50,85</positioning>
+                    <surface>
+                        <tooltip/>
+                    </surface>
+                    <padding>
+                        <all>15</all>
+                    </padding>
+                </flow-layout>
+            </children>
+
+            <surface>
+                <vanilla-translucent/>
+            </surface>
+        </flow-layout>
+    </components>
+</owo-ui>
