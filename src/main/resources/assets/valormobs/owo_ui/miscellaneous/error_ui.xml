@@ -5,17 +5,17 @@
             <children>
                 <flow-layout direction="horizontal">
                     <children>
-                        <entity type="valormobs:skullhaven_spirit">
+                        <entity type="valormobs:crab">
                             <sizing>
                                 <horizontal method="fixed">100</horizontal>
                                 <vertical method="fixed">100</vertical>
                             </sizing>
                             <look-at-cursor>true</look-at-cursor>
                             <scale-to-fit>true</scale-to-fit>
-                            <tooltip-text translate="true">entity.valormobs.skullhaven_spirit</tooltip-text>
+                            <tooltip-text translate="true">entity.valormobs.crab</tooltip-text>
                         </entity>
                         <label>
-                            <text translate="true">text.valormobs.skullhaven_text_1</text>
+                            <text translate="true">text.valormobs.error_text</text>
                             <max-width>250</max-width>
                             <horizontal-text-alignment>left</horizontal-text-alignment>
                             <margins>
@@ -23,6 +23,7 @@
                             </margins>
                         </label>
                     </children>
+
                     <surface>
                         <tooltip/>
                     </surface>
@@ -37,15 +38,8 @@
 
                 <flow-layout direction="horizontal">
                     <children>
-                        <button id="previous-button">
-                            <text>⏴ Previous</text>
-                            <active>false</active>
-                            <margins>
-                                <right>2</right>
-                            </margins>
-                        </button>
                         <button id="next-button">
-                            <text>Next ⏵</text>
+                            <text>Okay...</text>
                         </button>
                     </children>
                     <vertical-alignment>center</vertical-alignment>

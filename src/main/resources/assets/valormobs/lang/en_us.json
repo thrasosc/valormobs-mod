@@ -4,6 +4,11 @@
   "item.valormobs.skullhaven_spirit_spawn_egg": "Skull Haven Spirit Spawn Egg",
 
   "entity.valormobs.skullhaven_spirit": "Skull Haven Spirit",
+  "entity.valormobs.crab": "Oh Crab!",
+
+  "text.valormobs.error_text": [
+    "Oh no! What am I doing here? I am not the one you wish to speak to. When I show up it means that something went wrong, please report this to my creator."
+  ],
 
   "text.valormobs.skullhaven_text_1": [
     "Hark, oh intrepid traveler, you now stand within the dreaded confines of Skull Haven, a perilous dungeon where time's very essence has been entwined with ancient deities who hunger for the crimson nectar of life. Proceed with utmost caution, "
