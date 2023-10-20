@@ -9,17 +9,17 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.pixeldream.valormobs.ValorMobs;
-import net.pixeldream.valormobs.entity.GollumEntity;
+import net.pixeldream.valormobs.entity.SkullHavenSpiritEntity;
 
 public class EntityRegistry {
-    public static final EntityType<GollumEntity> GOLLUM_ENTITY = Registry.register(
+    public static final EntityType<SkullHavenSpiritEntity> SKULLHAVEN_SPIRIT_ENTITY = Registry.register(
             Registries.ENTITY_TYPE,
-            new Identifier(ValorMobs.MOD_ID, "gollum"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GollumEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.8f)).build()
+            new Identifier(ValorMobs.MOD_ID, "skullhaven_spirit"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SkullHavenSpiritEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.8f)).build()
     );
 
     public static void initialize() {
         ValorMobs.LOGGER.info("Registering entities for " + ValorMobs.MOD_NAME);
-        FabricDefaultAttributeRegistry.register(GOLLUM_ENTITY, GollumEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(SKULLHAVEN_SPIRIT_ENTITY, SkullHavenSpiritEntity.setAttributes());
     }
 }

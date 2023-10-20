@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import net.pixeldream.valormobs.ValorMobs;
 
 public class ItemRegistry {
-    public static final Item GOLLUM_SPAWN_EGG = registerItem("gollum_spawn_egg", new SpawnEggItem(EntityRegistry.GOLLUM_ENTITY, 0x399E6F, 0x1B6E47, new FabricItemSettings().maxCount(64)));
+    public static final Item SKULLHAVEN_SPIRIT_SPAWN_EGG = registerItem("skullhaven_spirit_spawn_egg", new SpawnEggItem(EntityRegistry.SKULLHAVEN_SPIRIT_ENTITY, 0xE3E3E3, 0xB8B8B8, new FabricItemSettings().maxCount(64)));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(ValorMobs.MOD_ID, name), item);
     }

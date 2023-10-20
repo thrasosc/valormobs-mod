@@ -9,6 +9,7 @@ import mod.azure.azurelib.core.object.PlayState;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.PathAwareEntity;
@@ -20,18 +21,23 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
-import net.pixeldream.valormobs.screen.SkullhavenScreen;
+import net.pixeldream.valormobs.screen.skullhaven.SkullHavenScreen1;
 
-public class GollumEntity extends PathAwareEntity implements GeoEntity {
+public abstract class AbstractSpiritEntity extends PathAwareEntity implements GeoEntity {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public GollumEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
+    public AbstractSpiritEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
         this.experiencePoints = 1;
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return PathAwareEntity.createMobAttributes();
+    }
+
+    @Override
+    protected void initGoals() {
+        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
     }
 
     @Override
@@ -42,10 +48,6 @@ public class GollumEntity extends PathAwareEntity implements GeoEntity {
     @Override
     public boolean isAttackable() {
         return false;
-    }
-
-    @Override
-    protected void initGoals() {
     }
 
     @Override
@@ -64,7 +66,7 @@ public class GollumEntity extends PathAwareEntity implements GeoEntity {
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         if (getWorld().isClient) {
-            MinecraftClient.getInstance().setScreen(new SkullhavenScreen());
+            MinecraftClient.getInstance().setScreen(new SkullHavenScreen1());
         }
         return super.interactMob(player, hand);
     }
