@@ -6,6 +6,8 @@
   "entity.valormobs.skullhaven_spirit": "Skull Haven Spirit",
   "entity.valormobs.crab": "Error Crab",
 
+  "entity.valormobs.executioner": "Executioner",
+
   "text.valormobs.error_text": [
     "Oh Crab! What am I doing here? I am not the one you wish to speak to. When I show up it means that something went wrong, please report this to my creator."
   ],

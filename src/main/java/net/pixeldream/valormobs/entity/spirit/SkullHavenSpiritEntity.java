@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity;
+package net.pixeldream.valormobs.entity.spirit;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.pixeldream.valormobs.entity.AbstractSpiritEntity;
 import net.pixeldream.valormobs.screen.skullhaven.SkullHavenScreen1;
 
 public class SkullHavenSpiritEntity extends AbstractSpiritEntity {

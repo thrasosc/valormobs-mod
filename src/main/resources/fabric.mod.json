@@ -26,7 +26,9 @@
 		"fabricloader": ">=0.14.23",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"azurelib": ">=1.0.33",
+		"owo": ">=0.11.1+1.20"
 	},
 	"suggests": {
 		"another-mod": "*"
