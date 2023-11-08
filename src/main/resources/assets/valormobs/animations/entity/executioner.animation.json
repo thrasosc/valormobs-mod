@@ -5,7 +5,7 @@
 			"loop": true,
 			"animation_length": 2,
 			"bones": {
-				"executioner": {
+				"skeleton": {
 					"position": {
 						"0.0": {
 							"vector": {
@@ -570,7 +570,7 @@
 			"loop": true,
 			"animation_length": 1.52,
 			"bones": {
-				"executioner": {
+				"skeleton": {
 					"rotation": {
 						"0.0": {
 							"vector": {
@@ -1176,7 +1176,7 @@
 		"attack": {
 			"animation_length": 1.2,
 			"bones": {
-				"executioner": {
+				"skeleton": {
 					"position": {
 						"0.0": {
 							"vector": {
@@ -2154,6 +2154,6 @@
 			}
 		}
 	},
-	"azurelib_format_version": 2,
-	"geckolib_format_version": 2
+	"geckolib_format_version": 2,
+	"azurelib_format_version": 2
 }
