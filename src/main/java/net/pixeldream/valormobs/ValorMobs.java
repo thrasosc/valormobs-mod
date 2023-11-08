@@ -2,7 +2,6 @@ package net.pixeldream.valormobs;
 
 import mod.azure.azurelib.AzureLib;
 import net.fabricmc.api.ModInitializer;
-
 import net.pixeldream.valormobs.registry.EntityRegistry;
 import net.pixeldream.valormobs.registry.ItemGroupRegistry;
 import net.pixeldream.valormobs.registry.ItemRegistry;
