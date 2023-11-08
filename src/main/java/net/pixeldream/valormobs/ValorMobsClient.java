@@ -4,7 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.pixeldream.valormobs.entity.client.renderer.AbstractSpiritRenderer;
 import net.pixeldream.valormobs.entity.client.renderer.CrabRenderer;
-import net.pixeldream.valormobs.entity.client.renderer.skullhaven.ExecutionerRenderer;
+import net.pixeldream.valormobs.entity.client.renderer.ExecutionerRenderer;
 import net.pixeldream.valormobs.registry.EntityRegistry;
 
 public class ValorMobsClient implements ClientModInitializer {

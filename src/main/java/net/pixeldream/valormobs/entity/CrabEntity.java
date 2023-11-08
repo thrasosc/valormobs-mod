@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity.spirit;
+package net.pixeldream.valormobs.entity;
 
 import mod.azure.azurelib.animatable.GeoEntity;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;

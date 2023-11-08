@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity.client.model.skullhaven;
+package net.pixeldream.valormobs.entity.client.model;
 
 import mod.azure.azurelib.constant.DataTickets;
 import mod.azure.azurelib.core.animatable.model.CoreGeoBone;
@@ -8,22 +8,22 @@ import mod.azure.azurelib.model.data.EntityModelData;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.pixeldream.valormobs.ValorMobs;
-import net.pixeldream.valormobs.entity.enemy.skullhaven.ExecutionerEntity;
+import net.pixeldream.valormobs.entity.ExecutionerEntity;
 
 public class ExecutionerModel extends GeoModel<ExecutionerEntity> {
     @Override
     public Identifier getModelResource(ExecutionerEntity object) {
-        return new Identifier(ValorMobs.MOD_ID, "geo/entity/skullhaven/executioner.geo.json");
+        return new Identifier(ValorMobs.MOD_ID, "geo/entity/executioner.geo.json");
     }
 
     @Override
     public Identifier getTextureResource(ExecutionerEntity object) {
-        return new Identifier(ValorMobs.MOD_ID, "textures/entity/skullhaven/executioner.png");
+        return new Identifier(ValorMobs.MOD_ID, "textures/entity/executioner.png");
     }
 
     @Override
     public Identifier getAnimationResource(ExecutionerEntity animatable) {
-        return new Identifier(ValorMobs.MOD_ID, "animations/entity/skullhaven/executioner.animation.json");
+        return new Identifier(ValorMobs.MOD_ID, "animations/entity/executioner.animation.json");
     }
 
     @Override

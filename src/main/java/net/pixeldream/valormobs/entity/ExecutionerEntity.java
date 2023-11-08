@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity.enemy.skullhaven;
+package net.pixeldream.valormobs.entity;
 
 import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import net.minecraft.entity.EntityType;
@@ -7,7 +7,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.world.World;
-import net.pixeldream.valormobs.entity.AbstractStrongEntity;
 
 public class ExecutionerEntity extends AbstractStrongEntity {
     public ExecutionerEntity(EntityType<? extends PathAwareEntity> entityType, World world) {

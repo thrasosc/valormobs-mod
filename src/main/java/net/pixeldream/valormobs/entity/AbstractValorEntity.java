@@ -15,10 +15,10 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 
-public class AbstractValorEntity extends PathAwareEntity implements GeoEntity, Monster {
+public abstract class AbstractValorEntity extends PathAwareEntity implements GeoEntity, Monster {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public AbstractValorEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
+    protected AbstractValorEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
     }
 
