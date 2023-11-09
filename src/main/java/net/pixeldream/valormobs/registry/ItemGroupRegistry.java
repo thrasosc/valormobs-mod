@@ -1,19 +1,19 @@
 package net.pixeldream.valormobs.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.pixeldream.valormobs.ValorMobs;
 
 public class ItemGroupRegistry {
-    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(ValorMobs.MOD_ID, ValorMobs.MOD_ID), FabricItemGroup.builder().displayName(Text.translatable("itemgroup." + ValorMobs.MOD_ID)).icon(() -> new ItemStack(Items.BROWN_MUSHROOM)).entries((displayContext, entries) -> {
-        entries.add(ItemRegistry.SKULLHAVEN_SPIRIT_SPAWN_EGG);
-        entries.add(ItemRegistry.EXECUTIONER_SPAWN_EGG);
+    public static final CreativeModeTab ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(ValorMobs.MOD_ID, ValorMobs.MOD_ID), FabricItemGroup.builder().title(Component.translatable("itemgroup." + ValorMobs.MOD_ID)).icon(() -> new ItemStack(Items.BROWN_MUSHROOM)).displayItems((displayContext, entries) -> {
+        entries.accept(ItemRegistry.SKULLHAVEN_SPIRIT_SPAWN_EGG);
+        entries.accept(ItemRegistry.EXECUTIONER_SPAWN_EGG);
     }).build());
 
     public static void initialize() {

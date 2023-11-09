@@ -1,25 +1,25 @@
 package net.pixeldream.valormobs.entity;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.pixeldream.valormobs.screen.skullhaven.SkullHavenScreen1;
 
 public class SkullHavenSpiritEntity extends AbstractSpiritEntity {
 
-    public SkullHavenSpiritEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
-        super(entityType, world);
+    public SkullHavenSpiritEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+        super(entityType, level);
     }
 
     @Override
-    public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        if (getWorld().isClient) {
-            MinecraftClient.getInstance().setScreen(new SkullHavenScreen1());
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (level().isClientSide) {
+            Minecraft.getInstance().setScreen(new SkullHavenScreen1());
         }
-        return super.interactMob(player, hand);
+        return super.mobInteract(player, hand);
     }
 }

@@ -1,20 +1,20 @@
 package net.pixeldream.valormobs.entity.client.renderer;
 
 import mod.azure.azurelib.renderer.GeoEntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.pixeldream.valormobs.ValorMobs;
 import net.pixeldream.valormobs.entity.AbstractSpiritEntity;
 import net.pixeldream.valormobs.entity.client.model.AbstractSpiritModel;
 
 public class AbstractSpiritRenderer extends GeoEntityRenderer<AbstractSpiritEntity> {
-    public AbstractSpiritRenderer(EntityRendererFactory.Context ctx) {
+    public AbstractSpiritRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new AbstractSpiritModel());
         this.shadowRadius = 0.5f;
     }
 
     @Override
-    public Identifier getTextureLocation(AbstractSpiritEntity animatable) {
-        return new Identifier(ValorMobs.MOD_ID, "textures/entity/spirit.png");
+    public ResourceLocation getTextureLocation(AbstractSpiritEntity animatable) {
+        return new ResourceLocation(ValorMobs.MOD_ID, "textures/entity/spirit.png");
     }
 }

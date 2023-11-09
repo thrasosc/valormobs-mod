@@ -6,29 +6,29 @@ import mod.azure.azurelib.core.animatable.instance.SingletonAnimatableInstanceCa
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.object.PlayState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 
-public class CrabEntity extends PathAwareEntity implements GeoEntity {
+public class CrabEntity extends PathfinderMob implements GeoEntity {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public CrabEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
-        super(entityType, world);
-        this.experiencePoints = 1;
+    public CrabEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+        super(entityType, level);
+        this.xpReward = 1;
     }
 
-    public static DefaultAttributeContainer.Builder setAttributes() {
-        return PathAwareEntity.createMobAttributes();
+    public static AttributeSupplier.Builder setAttributes() {
+        return PathfinderMob.createMobAttributes();
     }
 
     @Override
-    protected void initGoals() {
-        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
+    protected void registerGoals() {
+        this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 6.0f));
     }
 
     @Override
