@@ -4,7 +4,7 @@ import mod.azure.azurelib.renderer.GeoEntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.pixeldream.valormobs.ValorMobs;
-import net.pixeldream.valormobs.entity.CrabEntity;
+import net.pixeldream.valormobs.entity.tierspirit.CrabEntity;
 import net.pixeldream.valormobs.entity.client.model.CrabModel;
 
 public class CrabRenderer extends GeoEntityRenderer<CrabEntity> {

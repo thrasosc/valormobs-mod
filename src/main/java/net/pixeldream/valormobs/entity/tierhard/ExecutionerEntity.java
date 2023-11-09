@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity;
+package net.pixeldream.valormobs.entity.tierhard;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import mod.azure.azurelib.ai.pathing.AzureNavigation;
@@ -10,7 +10,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.Brain;
@@ -18,6 +17,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.pixeldream.valormobs.entity.HardEnemy;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
 import net.tslat.smartbrainlib.api.SmartBrainOwner;
@@ -40,7 +40,7 @@ import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 
 import java.util.List;
 
-public class ExecutionerEntity extends AbstractStrongEntity implements SmartBrainOwner<ExecutionerEntity> {
+public class ExecutionerEntity extends HardEnemy implements SmartBrainOwner<ExecutionerEntity> {
     public ExecutionerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         navigation = new AzureNavigation(this, level);
@@ -112,16 +112,6 @@ public class ExecutionerEntity extends AbstractStrongEntity implements SmartBrai
             swinging = false;
             return PlayState.STOP;
         }).triggerableAnim("melee", DefaultAnimations.ATTACK));
-    }
-
-    @Override
-    public double getPerceivedTargetDistanceSquareForMeleeAttack(LivingEntity livingEntity) {
-        return this.distanceToSqr(livingEntity.position()) + 20;
-    }
-
-    @Override
-    public double getMeleeAttackRangeSqr(LivingEntity livingEntity) {
-        return this.getBbWidth() * 2.0f * (this.getBbWidth() * 2.0f) + livingEntity.getBbWidth() + 20;
     }
 
     @Override

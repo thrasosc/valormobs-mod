@@ -15,12 +15,12 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
 
-public abstract class AbstractValorEntity extends PathfinderMob implements GeoEntity, Enemy {
+public abstract class ValorEntity extends PathfinderMob implements GeoEntity, Enemy {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
-    public static final EntityDataAccessor<Integer> STATE = SynchedEntityData.defineId(AbstractValorEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> STATE = SynchedEntityData.defineId(ValorEntity.class, EntityDataSerializers.INT);
 
 
-    protected AbstractValorEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+    protected ValorEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
     }
 

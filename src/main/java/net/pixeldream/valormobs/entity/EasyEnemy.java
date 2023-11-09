@@ -5,8 +5,8 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
 
-public abstract class AbstractSmallEntity extends AbstractValorEntity {
-    public AbstractSmallEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+public abstract class EasyEnemy extends ValorEntity {
+    public EasyEnemy(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         this.xpReward = Enemy.XP_REWARD_SMALL;
     }

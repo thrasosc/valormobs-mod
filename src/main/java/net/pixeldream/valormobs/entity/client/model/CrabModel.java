@@ -3,7 +3,7 @@ package net.pixeldream.valormobs.entity.client.model;
 import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.pixeldream.valormobs.ValorMobs;
-import net.pixeldream.valormobs.entity.CrabEntity;
+import net.pixeldream.valormobs.entity.tierspirit.CrabEntity;
 
 public class CrabModel extends GeoModel<CrabEntity> {
     @Override

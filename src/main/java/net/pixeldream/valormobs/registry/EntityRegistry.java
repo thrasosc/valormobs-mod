@@ -9,9 +9,9 @@ import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.pixeldream.valormobs.ValorMobs;
-import net.pixeldream.valormobs.entity.CrabEntity;
-import net.pixeldream.valormobs.entity.ExecutionerEntity;
-import net.pixeldream.valormobs.entity.SkullHavenSpiritEntity;
+import net.pixeldream.valormobs.entity.tierspirit.CrabEntity;
+import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
+import net.pixeldream.valormobs.entity.tierspirit.SkullHavenSpiritEntity;
 
 public class EntityRegistry {
     public static final EntityType<SkullHavenSpiritEntity> SKULLHAVEN_SPIRIT_ENTITY = Registry.register(

@@ -3,13 +3,13 @@ package net.pixeldream.valormobs.entity.task;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.pixeldream.valormobs.entity.AbstractValorEntity;
-import net.pixeldream.valormobs.entity.ExecutionerEntity;
+import net.pixeldream.valormobs.entity.ValorEntity;
+import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
 import net.tslat.smartbrainlib.api.core.behaviour.ExtendedBehaviour;
 
 import java.util.function.Consumer;
 
-public abstract class CustomDelayedMeleeBehaviour<E extends AbstractValorEntity> extends ExtendedBehaviour<E> {
+public abstract class CustomDelayedMeleeBehaviour<E extends ValorEntity> extends ExtendedBehaviour<E> {
     protected final int delayTime;
     protected long delayFinishedAt = 0;
     protected Consumer<E> delayedCallback = entity -> {

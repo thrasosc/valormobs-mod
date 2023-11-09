@@ -5,9 +5,9 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
 
-public abstract class AbstractStrongEntity extends AbstractValorEntity {
-    protected AbstractStrongEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+public abstract class NormalEnemy extends ValorEntity {
+    public NormalEnemy(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
-        this.xpReward = Enemy.XP_REWARD_LARGE;
+        this.xpReward = Enemy.XP_REWARD_MEDIUM;
     }
 }

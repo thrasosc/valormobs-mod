@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity;
+package net.pixeldream.valormobs.entity.tierspirit;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
@@ -7,9 +7,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.pixeldream.valormobs.entity.SpiritEntity;
 import net.pixeldream.valormobs.screen.skullhaven.SkullHavenScreen1;
 
-public class SkullHavenSpiritEntity extends AbstractSpiritEntity {
+public class SkullHavenSpiritEntity extends SpiritEntity {
 
     public SkullHavenSpiritEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);

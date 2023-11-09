@@ -23,10 +23,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 import net.pixeldream.valormobs.screen.miscellaneous.ErrorScreen;
 
-public abstract class AbstractSpiritEntity extends PathfinderMob implements GeoEntity {
+public abstract class SpiritEntity extends PathfinderMob implements GeoEntity {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public AbstractSpiritEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public SpiritEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         this.xpReward = 1;
     }
