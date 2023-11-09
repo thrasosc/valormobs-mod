@@ -27,7 +27,7 @@ public class EntityRegistry {
     public static final EntityType<ExecutionerEntity> EXECUTIONER_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             new ResourceLocation(ValorMobs.MOD_ID, "executioner"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, ExecutionerEntity::new).dimensions(EntityDimensions.fixed(2.0f,3.0f)).build()
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, ExecutionerEntity::new).dimensions(EntityDimensions.fixed(1.5f,3.1f)).build()
     );
 
     public static void initialize() {
