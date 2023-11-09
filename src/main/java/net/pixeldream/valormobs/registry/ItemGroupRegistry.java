@@ -13,6 +13,7 @@ import net.pixeldream.valormobs.ValorMobs;
 public class ItemGroupRegistry {
     public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(ValorMobs.MOD_ID, ValorMobs.MOD_ID), FabricItemGroup.builder().displayName(Text.translatable("itemgroup." + ValorMobs.MOD_ID)).icon(() -> new ItemStack(Items.BROWN_MUSHROOM)).entries((displayContext, entries) -> {
         entries.add(ItemRegistry.SKULLHAVEN_SPIRIT_SPAWN_EGG);
+        entries.add(ItemRegistry.EXECUTIONER_SPAWN_EGG);
     }).build());
 
     public static void initialize() {
