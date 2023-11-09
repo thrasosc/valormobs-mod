@@ -17,7 +17,6 @@ public abstract class CustomDelayedMeleeBehaviour<E extends AbstractValorEntity>
 
     public CustomDelayedMeleeBehaviour(int delayTicks) {
         this.delayTime = delayTicks;
-
         runFor(entity -> Math.max(delayTicks, 60));
     }
 
@@ -29,7 +28,6 @@ public abstract class CustomDelayedMeleeBehaviour<E extends AbstractValorEntity>
      */
     public final CustomDelayedMeleeBehaviour<E> whenActivating(Consumer<E> callback) {
         this.delayedCallback = callback;
-
         return this;
     }
 
@@ -74,6 +72,5 @@ public abstract class CustomDelayedMeleeBehaviour<E extends AbstractValorEntity>
      *
      * @param entity The owner of the brain
      */
-    protected void doDelayedAction(E entity) {
-    }
+    protected void doDelayedAction(E entity) {}
 }

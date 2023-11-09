@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.Brain;
@@ -106,20 +107,21 @@ public class ExecutionerEntity extends AbstractStrongEntity implements SmartBrai
             if ((event.isMoving() || isAggressive()) && !swinging) {
                 return event.setAndContinue(DefaultAnimations.WALK);
             }
-//            else if (swinging) {
-//                event.getController().setAnimation(DefaultAnimations.ATTACK);
-//                attackLength++;
-//                if (attackLength >= 1.2*60) {
-//                    swinging = false;
-//                    attackLength = 0;
-//                }
-//                return PlayState.CONTINUE;
-//            }
             return event.setAndContinue(DefaultAnimations.IDLE);
         })).add(new AnimationController<>(this, "attackController", 3, event -> {
             swinging = false;
             return PlayState.STOP;
         }).triggerableAnim("melee", DefaultAnimations.ATTACK));
+    }
+
+    @Override
+    public double getPerceivedTargetDistanceSquareForMeleeAttack(LivingEntity livingEntity) {
+        return this.distanceToSqr(livingEntity.position()) + 20;
+    }
+
+    @Override
+    public double getMeleeAttackRangeSqr(LivingEntity livingEntity) {
+        return this.getBbWidth() * 2.0f * (this.getBbWidth() * 2.0f) + livingEntity.getBbWidth() + 20;
     }
 
     @Override

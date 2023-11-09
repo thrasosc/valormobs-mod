@@ -35,7 +35,6 @@ public class CustomMeleeAttack<E extends AbstractValorEntity> extends CustomDela
 	 */
 	public CustomMeleeAttack<E> attackInterval(Function<E, Integer> supplier) {
 		this.attackIntervalSupplier = supplier;
-
 		return this;
 	}
 
@@ -47,7 +46,6 @@ public class CustomMeleeAttack<E extends AbstractValorEntity> extends CustomDela
 	@Override
 	protected boolean checkExtraStartConditions(ServerLevel level, E entity) {
 		this.target = BrainUtils.getTargetOfEntity(entity);
-
 		return entity.getSensing().hasLineOfSight(this.target) && entity.isWithinMeleeAttackRange(this.target);
 	}
 
@@ -65,13 +63,10 @@ public class CustomMeleeAttack<E extends AbstractValorEntity> extends CustomDela
 	@Override
 	protected void doDelayedAction(E entity) {
 		BrainUtils.setForgettableMemory(entity, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(entity));
-
 		if (this.target == null)
 			return;
-
 		if (!entity.getSensing().hasLineOfSight(this.target) || !entity.isWithinMeleeAttackRange(this.target))
 			return;
-
 		BehaviorUtils.lookAtEntity(entity, this.target);
 		entity.doHurtTarget(this.target);
 	}
