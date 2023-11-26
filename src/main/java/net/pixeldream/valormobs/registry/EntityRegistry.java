@@ -9,6 +9,7 @@ import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.pixeldream.valormobs.ValorMobs;
+import net.pixeldream.valormobs.entity.tiereasy.MummyEntity;
 import net.pixeldream.valormobs.entity.tierspirit.CrabEntity;
 import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
 import net.pixeldream.valormobs.entity.tierspirit.SkullHavenSpiritEntity;
@@ -29,11 +30,17 @@ public class EntityRegistry {
             new ResourceLocation(ValorMobs.MOD_ID, "executioner"),
             FabricEntityTypeBuilder.create(MobCategory.CREATURE, ExecutionerEntity::new).dimensions(EntityDimensions.fixed(1.5f,3.1f)).build()
     );
+    public static final EntityType<MummyEntity> MUMMY_ENTITY = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            new ResourceLocation(ValorMobs.MOD_ID, "mummy"),
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, MummyEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build()
+    );
 
     public static void initialize() {
         ValorMobs.LOGGER.info("Registering entities for " + ValorMobs.MOD_NAME);
         FabricDefaultAttributeRegistry.register(SKULLHAVEN_SPIRIT_ENTITY, SkullHavenSpiritEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(CRAB_ENTITY, CrabEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(EXECUTIONER_ENTITY, ExecutionerEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(MUMMY_ENTITY, MummyEntity.setAttributes());
     }
 }

@@ -1,5 +1,6 @@
 package net.pixeldream.valormobs.entity;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import mod.azure.azurelib.animatable.GeoEntity;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animatable.instance.SingletonAnimatableInstanceCache;
@@ -12,10 +13,21 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
+import net.tslat.smartbrainlib.api.SmartBrainOwner;
+import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
+import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
+import net.tslat.smartbrainlib.api.core.sensor.ExtendedSensor;
+import net.tslat.smartbrainlib.api.core.sensor.vanilla.HurtBySensor;
+import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 
-public abstract class ValorEntity extends PathfinderMob implements GeoEntity, Enemy {
+import java.util.List;
+
+public abstract class ValorEntity extends PathfinderMob implements GeoEntity, Enemy, SmartBrainOwner<ValorEntity> {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
     public static final EntityDataAccessor<Integer> STATE = SynchedEntityData.defineId(ValorEntity.class, EntityDataSerializers.INT);
 
@@ -68,5 +80,30 @@ public abstract class ValorEntity extends PathfinderMob implements GeoEntity, En
     public void die(DamageSource damageSource) {
         produceParticles(ParticleTypes.POOF);
         super.die(damageSource);
+    }
+
+    @Override
+    protected Brain.Provider<?> brainProvider() {
+        return new SmartBrainProvider<>(this);
+    }
+
+    @Override
+    protected void customServerAiStep() {
+        tickBrain(this);
+    }
+
+    @Override
+    public List<ExtendedSensor<ValorEntity>> getSensors() {
+        return ObjectArrayList.of(
+                new NearbyLivingEntitySensor<>(),   // This tracks nearby entities
+                new HurtBySensor<>()    // This tracks the last damage source and attacker
+        );
+    }
+
+    @Override
+    public BrainActivityGroup<ValorEntity> getCoreTasks() { // These are the tasks that run all the time (usually)
+        return BrainActivityGroup.coreTasks(
+                new LookAtTarget<>(),   // Have the entity turn to face and look at its current look target
+                new MoveToWalkTarget<>());  // Walk towards the current walk target
     }
 }

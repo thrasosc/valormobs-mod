@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity.tierhard;
+package net.pixeldream.valormobs.entity.tiereasy;
 
 import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.core.animation.AnimatableManager;
@@ -16,13 +16,14 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.pixeldream.valormobs.entity.HardEnemy;
+import net.pixeldream.valormobs.entity.EasyEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
-import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
+import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
 import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
@@ -31,18 +32,19 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetPlayerLookTar
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
 
-public class ExecutionerEntity extends HardEnemy {
-    public ExecutionerEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+public class MummyEntity extends EasyEnemy {
+
+    public MummyEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         navigation = new AzureNavigation(this, level);
     }
 
     public static AttributeSupplier.Builder setAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 80)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0)
-                .add(Attributes.ATTACK_DAMAGE, 6)
-                .add(Attributes.ATTACK_KNOCKBACK, 2);
+                .add(Attributes.MAX_HEALTH, 20)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 0.5)
+                .add(Attributes.ATTACK_DAMAGE, 3)
+                .add(Attributes.ATTACK_KNOCKBACK, 1);
     }
 
     @Override
@@ -61,14 +63,17 @@ public class ExecutionerEntity extends HardEnemy {
     public BrainActivityGroup<ValorEntity> getFightTasks() {    // These are the tasks that handle fighting
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(), // Cancel fighting if the target is no longer valid
-                new SetWalkTargetToAttackTarget<>().speedMod(0.6f), // Set the walk target to the attack target
-                new CustomMeleeAttack<>(13));   // Melee attack the target if close enough
+                new SetWalkTargetToAttackTarget<>().speedMod(0.75f), // Set the walk target to the attack target
+                new AnimatableMeleeAttack<>(20));   // Melee attack the target if close enough
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "livingController", 3, event -> {
-            if ((event.isMoving() || isAggressive()) && !swinging) {
+            if (event.isMoving() && !swinging) {
+                if (isAggressive()) {
+                    return event.setAndContinue(DefaultAnimations.RUN);
+                }
                 return event.setAndContinue(DefaultAnimations.WALK);
             }
             return event.setAndContinue(DefaultAnimations.IDLE);

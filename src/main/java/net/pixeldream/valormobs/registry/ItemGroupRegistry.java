@@ -14,6 +14,7 @@ public class ItemGroupRegistry {
     public static final CreativeModeTab ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(ValorMobs.MOD_ID, ValorMobs.MOD_ID), FabricItemGroup.builder().title(Component.translatable("itemgroup." + ValorMobs.MOD_ID)).icon(() -> new ItemStack(Items.BROWN_MUSHROOM)).displayItems((displayContext, entries) -> {
         entries.accept(ItemRegistry.SKULLHAVEN_SPIRIT_SPAWN_EGG);
         entries.accept(ItemRegistry.EXECUTIONER_SPAWN_EGG);
+        entries.accept(ItemRegistry.MUMMY_SPAWN_EGG);
     }).build());
 
     public static void initialize() {
