@@ -15,6 +15,7 @@ public class ItemGroupRegistry {
         entries.accept(ItemRegistry.SKULLHAVEN_SPIRIT_SPAWN_EGG);
         entries.accept(ItemRegistry.EXECUTIONER_SPAWN_EGG);
         entries.accept(ItemRegistry.MUMMY_SPAWN_EGG);
+        entries.accept(ItemRegistry.AZTEC_WARRIOR_SPAWN_EGG);
     }).build());
 
     public static void initialize() {

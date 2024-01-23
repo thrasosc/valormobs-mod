@@ -2,10 +2,7 @@ package net.pixeldream.valormobs;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.pixeldream.valormobs.entity.client.renderer.AbstractSpiritRenderer;
-import net.pixeldream.valormobs.entity.client.renderer.CrabRenderer;
-import net.pixeldream.valormobs.entity.client.renderer.ExecutionerRenderer;
-import net.pixeldream.valormobs.entity.client.renderer.MummyRenderer;
+import net.pixeldream.valormobs.entity.client.renderer.*;
 import net.pixeldream.valormobs.registry.EntityRegistry;
 
 public class ValorMobsClient implements ClientModInitializer {
@@ -15,5 +12,6 @@ public class ValorMobsClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityRegistry.CRAB_ENTITY, CrabRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.EXECUTIONER_ENTITY, ExecutionerRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.MUMMY_ENTITY, MummyRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.AZTEC_WARRIOR_ENTITY, AztecWarriorRenderer::new);
     }
 }

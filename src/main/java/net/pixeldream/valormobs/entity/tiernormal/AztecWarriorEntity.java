@@ -1,4 +1,4 @@
-package net.pixeldream.valormobs.entity.tiereasy;
+package net.pixeldream.valormobs.entity.tiernormal;
 
 import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.core.animation.AnimatableManager;
@@ -13,29 +13,19 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.EasyEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
-import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
-import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetPlayerLookTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
 
-public class MummyEntity extends EasyEnemy {
+public class AztecWarriorEntity extends EasyEnemy {
 
-    public MummyEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public AztecWarriorEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
         navigation = new AzureNavigation(this, level);
     }
@@ -53,7 +43,7 @@ public class MummyEntity extends EasyEnemy {
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(),
                 new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.45f),
-                new CustomMeleeAttack<>(15));
+                new CustomMeleeAttack<>(10));
     }
 
     @Override

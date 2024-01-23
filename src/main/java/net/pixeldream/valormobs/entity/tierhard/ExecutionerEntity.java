@@ -46,22 +46,10 @@ public class ExecutionerEntity extends HardEnemy {
     }
 
     @Override
-    public BrainActivityGroup<ValorEntity> getIdleTasks() { // These are the tasks that run when the mob isn't doing anything else (usually)
-        return BrainActivityGroup.idleTasks(
-                new FirstApplicableBehaviour<ExecutionerEntity>(    // Run only one of the below behaviours, trying each one in order. Include the generic type because JavaC is silly
-                        new TargetOrRetaliate<>().attackablePredicate(entity -> entity.isAlive() && !(entity instanceof ValorEntity) && (!(entity instanceof Player player) || !player.isCreative())),  // Set the attack target and walk target based on nearby entities
-                        new SetPlayerLookTarget<>(),    // Set the look target for the nearest player
-                        new SetRandomLookTarget<>()),   // Set a random look target
-                new OneRandomBehaviour<>(   // Run a random task from the below options
-                        new SetRandomWalkTarget<>().speedModifier(0.5f),    // Set a random walk target to a nearby position
-                        new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 100))));   // Do nothing for 1.5->3 seconds
-    }
-
-    @Override
     public BrainActivityGroup<ValorEntity> getFightTasks() {    // These are the tasks that handle fighting
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(), // Cancel fighting if the target is no longer valid
-                new SetWalkTargetToAttackTarget<>().speedMod(0.6f), // Set the walk target to the attack target
+                new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.35f), // Set the walk target to the attack target
                 new CustomMeleeAttack<>(13));   // Melee attack the target if close enough
     }
 
