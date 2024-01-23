@@ -1,0 +1,152 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.eagle_warrior",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "eagle_warrior",
+					"pivot": [0, 11, 0]
+				},
+				{
+					"name": "body",
+					"parent": "eagle_warrior",
+					"pivot": [0, 11, 0],
+					"cubes": [
+						{"origin": [-3, 14, -2], "size": [6, 2, 4], "uv": [30, 26]},
+						{"origin": [-3, 11, -2], "size": [6, 3, 4], "inflate": 0.3, "uv": [30, 32]},
+						{"origin": [-4, 16, -2], "size": [8, 7, 4], "uv": [40, 10]}
+					]
+				},
+				{
+					"name": "cloth",
+					"parent": "body",
+					"pivot": [0, 11, -2],
+					"cubes": [
+						{"origin": [-2, 3, -2.2], "size": [4, 8, 1], "uv": [40, 0]}
+					]
+				},
+				{
+					"name": "left_wing_part_one",
+					"parent": "body",
+					"pivot": [1, 21, 2],
+					"cubes": [
+						{"origin": [1, 20, 1], "size": [15, 4, 2], "uv": [0, 44]},
+						{"origin": [4, 9, 2], "size": [15, 11, 0], "uv": [34, 39]}
+					]
+				},
+				{
+					"name": "left_wing_part_two",
+					"parent": "left_wing_part_one",
+					"pivot": [16, 24, 2],
+					"cubes": [
+						{"origin": [16, 21, 1.5], "size": [13, 3, 1], "uv": [0, 40]},
+						{"origin": [16, 12, 2], "size": [25, 14, 0], "uv": [14, 50]}
+					]
+				},
+				{
+					"name": "right_wing_part_one",
+					"parent": "body",
+					"pivot": [-1, 21, 2],
+					"cubes": [
+						{"origin": [-16, 20, 1], "size": [15, 4, 2], "uv": [0, 44], "mirror": true},
+						{"origin": [-19, 9, 2], "size": [15, 11, 0], "uv": [34, 39], "mirror": true}
+					]
+				},
+				{
+					"name": "right_wing_part_two",
+					"parent": "right_wing_part_one",
+					"pivot": [-16, 24, 2],
+					"cubes": [
+						{"origin": [-29, 21, 1.5], "size": [13, 3, 1], "uv": [0, 40], "mirror": true},
+						{"origin": [-41, 12, 2], "size": [25, 14, 0], "uv": [14, 50], "mirror": true}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "body",
+					"pivot": [0, 11, 2],
+					"rotation": [-60, 0, 0],
+					"cubes": [
+						{"origin": [-5, 11, 2], "size": [10, 0, 9], "uv": [-9, 0]},
+						{"origin": [-4, 11, 2], "size": [8, 0, 6], "pivot": [0, 11, 2], "rotation": [22.5, 0, 0], "uv": [15, 0]}
+					]
+				},
+				{
+					"name": "right_arm",
+					"parent": "body",
+					"pivot": [-4, 21, 0],
+					"cubes": [
+						{"origin": [-7, 11, -2], "size": [3, 12, 4], "uv": [50, 23], "mirror": true}
+					]
+				},
+				{
+					"name": "right_dagger",
+					"parent": "right_arm",
+					"pivot": [-5.5, 12.5, 0],
+					"rotation": [90, 0, 0],
+					"cubes": [
+						{"origin": [-5.4, 11.5, -1], "size": [0, 5, 5], "pivot": [-5.5, 15.5, 0], "rotation": [135, 0, 0], "uv": [19, 9]},
+						{"origin": [-6, 9.5, -1], "size": [1, 6, 2], "uv": [0, 13]}
+					]
+				},
+				{
+					"name": "left_arm",
+					"parent": "body",
+					"pivot": [4, 21, 0],
+					"cubes": [
+						{"origin": [4, 11, -2], "size": [3, 12, 4], "uv": [50, 23]}
+					]
+				},
+				{
+					"name": "left_dagger",
+					"parent": "left_arm",
+					"pivot": [5.5, 12.5, 0],
+					"rotation": [90, 0, 0],
+					"cubes": [
+						{"origin": [5.6, 11.5, -1], "size": [0, 5, 5], "pivot": [5.5, 15.5, 0], "rotation": [135, 0, 0], "uv": [19, 9]},
+						{"origin": [5, 9.5, -1], "size": [1, 6, 2], "uv": [0, 13]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 21, 0],
+					"cubes": [
+						{"origin": [-3, 23, -5], "size": [6, 6, 7], "uv": [0, 14]},
+						{"origin": [-1.5, 24, -9], "size": [3, 4, 4], "uv": [0, 56]},
+						{"origin": [-1, 23, -8], "size": [2, 3, 3], "uv": [0, 50]},
+						{"origin": [-4, 19, -3], "size": [8, 7, 6], "inflate": 0.01, "uv": [0, 27]}
+					]
+				},
+				{
+					"name": "right_leg",
+					"parent": "eagle_warrior",
+					"pivot": [-2, 11, 0],
+					"cubes": [
+						{"origin": [-3.5, 5, -2], "size": [3, 6, 4], "uv": [50, 0], "mirror": true},
+						{"origin": [-3, 2, 0], "size": [2, 7, 3], "uv": [30, 6], "mirror": true},
+						{"origin": [-3.5, 0, -2], "size": [3, 2, 7], "uv": [27, 17], "mirror": true}
+					]
+				},
+				{
+					"name": "left_leg",
+					"parent": "eagle_warrior",
+					"pivot": [2, 11, 0],
+					"cubes": [
+						{"origin": [0.5, 5, -2], "size": [3, 6, 4], "uv": [50, 0]},
+						{"origin": [1, 2, 0], "size": [2, 7, 3], "uv": [30, 6]},
+						{"origin": [0.5, 0, -2], "size": [3, 2, 7], "uv": [27, 17]}
+					]
+				}
+			]
+		}
+	]
+}

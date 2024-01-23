@@ -77,6 +77,11 @@ public abstract class ValorEntity extends PathfinderMob implements GeoEntity, En
     }
 
     @Override
+    protected void customServerAiStep() {
+        tickBrain(this);
+    }
+
+    @Override
     public BrainActivityGroup<ValorEntity> getIdleTasks() {
         return BrainActivityGroup.idleTasks(
                 new FirstApplicableBehaviour<ExecutionerEntity>(
@@ -86,31 +91,6 @@ public abstract class ValorEntity extends PathfinderMob implements GeoEntity, En
                 new OneRandomBehaviour<>(
                         new SetRandomWalkTarget<>().speedModifier(0.25f),
                         new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 100))));
-    }
-
-    protected void produceParticles(ParticleOptions parameters) {
-        for(int i = 0; i < 5; ++i) {
-            double d = this.random.nextGaussian() * 0.02;
-            double e = this.random.nextGaussian() * 0.02;
-            double f = this.random.nextGaussian() * 0.02;
-            this.level().addParticle(parameters, this.getRandomX(1.0), this.getRandomY() + 1.0, this.getRandomZ(1.0), d, e, f);
-        }
-    }
-
-    @Override
-    public void die(DamageSource damageSource) {
-        produceParticles(ParticleTypes.POOF);
-        super.die(damageSource);
-    }
-
-    @Override
-    protected Brain.Provider<?> brainProvider() {
-        return new SmartBrainProvider<>(this);
-    }
-
-    @Override
-    protected void customServerAiStep() {
-        tickBrain(this);
     }
 
     @Override
@@ -126,5 +106,25 @@ public abstract class ValorEntity extends PathfinderMob implements GeoEntity, En
         return BrainActivityGroup.coreTasks(
                 new LookAtTarget<>(),   // Have the entity turn to face and look at its current look target
                 new MoveToWalkTarget<>());  // Walk towards the current walk target
+    }
+
+    @Override
+    protected Brain.Provider<?> brainProvider() {
+        return new SmartBrainProvider<>(this);
+    }
+
+    protected void produceParticles(ParticleOptions parameters) {
+        for(int i = 0; i < 5; ++i) {
+            double d = this.random.nextGaussian() * 0.02;
+            double e = this.random.nextGaussian() * 0.02;
+            double f = this.random.nextGaussian() * 0.02;
+            this.level().addParticle(parameters, this.getRandomX(1.0), this.getRandomY() + 1.0, this.getRandomZ(1.0), d, e, f);
+        }
+    }
+
+    @Override
+    public void die(DamageSource damageSource) {
+        produceParticles(ParticleTypes.POOF);
+        super.die(damageSource);
     }
 }
