@@ -15,7 +15,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.pixeldream.valormobs.entity.EasyEnemy;
+import net.pixeldream.valormobs.entity.NormalEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
@@ -23,7 +23,7 @@ import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 
-public class AztecWarriorEntity extends EasyEnemy {
+public class AztecWarriorEntity extends NormalEnemy {
 
     public AztecWarriorEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
