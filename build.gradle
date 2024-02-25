@@ -18,6 +18,19 @@ repositories {
 		name = "SmartBrainLib (SBL) Maven Repo"
 		url = "https://dl.cloudsmith.io/public/tslat/sbl/maven/"
 	}
+	maven {
+		name = "Ladysnake Mods"
+		url = "https://maven.ladysnake.org/releases"
+		content {
+			includeGroup 'io.github.ladysnake'
+			includeGroup 'org.ladysnake'
+			includeGroupByRegex 'dev\\.onyxstudios.*'
+		}
+	}
+	maven {
+		name = "Nexus Repository Manager"
+		url = "https://oss.sonatype.org/content/repositories/snapshots"
+	}
 }
 
 dependencies {
@@ -30,11 +43,21 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}") { exclude group: "net.fabricmc.fabric-api" }
+
 	modImplementation "mod.azure.azurelib:azurelib-fabric-1.20.1:${project.azurelib_version}"
+
 	modImplementation "io.wispforest:owo-lib:${project.owo_version}"
 	include "io.wispforest:owo-sentinel:${project.owo_version}"
+
 	modImplementation "net.tslat.smartbrainlib:SmartBrainLib-fabric-${project.minecraft_version}:${project.sbl_version}"
 	modImplementation "net.tslat.smartbrainlib:SmartBrainLib-common-${project.minecraft_version}:${project.sbl_version}"
+
+	modImplementation "org.ladysnake:blabber:${blabber_version}"
+	include "org.ladysnake:blabber:${blabber_version}"
+	// Blabber dependencies
+	include "me.lucko:fabric-permissions-api:${fpa_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 }
 
 processResources {

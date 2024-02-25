@@ -65,9 +65,9 @@ public abstract class SpiritEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (level().isClientSide) {
-            Minecraft.getInstance().setScreen(new ErrorScreen());
-        }
+//        if (level().isClientSide) {
+//            Minecraft.getInstance().setScreen(new ErrorScreen());
+//        }
         return super.mobInteract(player, hand);
     }
 
