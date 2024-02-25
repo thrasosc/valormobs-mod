@@ -17,8 +17,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.NormalEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
-import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 
@@ -42,8 +42,8 @@ public class EagleWarriorEntity extends NormalEnemy {
     public BrainActivityGroup<ValorEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(),
-                new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.6f),
-                new CustomMeleeAttack<>(10));
+                new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.55f),
+                new AnimatableMeleeAttack<>(10));
     }
 
     @Override
@@ -58,19 +58,19 @@ public class EagleWarriorEntity extends NormalEnemy {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        playSound(SoundEvents.PARROT_AMBIENT, 1.0f, 0.5f);
+        playSound(SoundEvents.PARROT_AMBIENT, 1.0f, 0.4f);
         return null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        playSound(SoundEvents.PARROT_HURT, 1.0f, 0.5f);
+        playSound(SoundEvents.PARROT_HURT, 1.0f, 0.4f);
         return null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        playSound(SoundEvents.PARROT_DEATH, 1.0f, 0.5f);
+        playSound(SoundEvents.PARROT_DEATH, 1.0f, 0.4f);
         return null;
     }
 

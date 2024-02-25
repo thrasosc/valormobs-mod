@@ -13,25 +13,15 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.EasyEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
-import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
-import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetPlayerLookTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
 
 public class MummyEntity extends EasyEnemy {
 
@@ -74,24 +64,24 @@ public class MummyEntity extends EasyEnemy {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        playSound(SoundEvents.SKELETON_AMBIENT, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_AMBIENT, 1.0f, 0.5f);
         return null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        playSound(SoundEvents.SKELETON_HURT, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_HURT, 1.0f, 0.5f);
         return null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        playSound(SoundEvents.SKELETON_DEATH, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_DEATH, 1.0f, 0.5f);
         return null;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        playSound(SoundEvents.SKELETON_STEP, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_STEP, 1.0f, 0.5f);
     }
 }

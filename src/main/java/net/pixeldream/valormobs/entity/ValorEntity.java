@@ -96,10 +96,13 @@ public abstract class ValorEntity extends PathfinderMob implements GeoEntity, En
 
     @Override
     public List<ExtendedSensor<ValorEntity>> getSensors() {
-        return ObjectArrayList.of(new NearbyLivingEntitySensor<ValorEntity>().setPredicate(
-                        (target, entity) -> target.isAlive() && entity.hasLineOfSight(
-                                target) && !(target instanceof ValorEntity)), new HurtBySensor<>(),
-                new UnreachableTargetSensor<>());
+        return ObjectArrayList.of(
+                new NearbyLivingEntitySensor<ValorEntity>().setPredicate(
+                        (target, entity) -> target.isAlive() && entity.hasLineOfSight(target) && !(target instanceof ValorEntity)
+                ),
+                new HurtBySensor<>(),
+                new UnreachableTargetSensor<>()
+        );
     }
 
     @Override

@@ -8,6 +8,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
@@ -20,6 +22,7 @@ import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
 import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.ReactToUnreachableTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 
@@ -42,7 +45,26 @@ public class JaguarWarriorEntity extends NormalEnemy {
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(),
                 new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.45f),
-                new CustomMeleeAttack<>(10));
+                new CustomMeleeAttack<>(20),
+                new ReactToUnreachableTarget<>().timeBeforeReacting(entity -> 10).reaction((livingEntity, aBoolean) -> {
+                    //                    if (aBoolean) {
+                    this.addEffect(new MobEffectInstance(MobEffects.JUMP, 40, 2, false, false), this);
+//                            this.setJumping(true);
+//                            this.jumpFromGround();
+                    this.jumpControl.jump();
+                    //                    }
+                })
+//                new FirstApplicableBehaviour<>(
+//                        new ReactToUnreachableTarget<>().timeBeforeReacting(entity -> 10).reaction((livingEntity, aBoolean) -> {
+//                            //                    if (aBoolean) {
+//                            this.addEffect(new MobEffectInstance(MobEffects.JUMP, 800, 5, false, false), this);
+////                            this.setJumping(true);
+////                            this.jumpFromGround();
+//                            this.jumpControl.jump();
+//                            //                    }
+//                        })
+//                )
+        );
     }
 
     @Override
@@ -63,24 +85,24 @@ public class JaguarWarriorEntity extends NormalEnemy {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        playSound(SoundEvents.SKELETON_AMBIENT, 1.0f, 0.5f);
+        playSound(SoundEvents.OCELOT_AMBIENT, 1.0f, 0.25f);
         return null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        playSound(SoundEvents.SKELETON_HURT, 1.0f, 0.5f);
+        playSound(SoundEvents.OCELOT_HURT, 1.0f, 0.25f);
         return null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        playSound(SoundEvents.SKELETON_DEATH, 1.0f, 0.5f);
+        playSound(SoundEvents.OCELOT_DEATH, 1.0f, 0.25f);
         return null;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        playSound(SoundEvents.SKELETON_STEP, 1.0f, 0.5f);
+        playSound(SoundEvents.WOLF_STEP, 1.0f, 1.0f);
     }
 }
