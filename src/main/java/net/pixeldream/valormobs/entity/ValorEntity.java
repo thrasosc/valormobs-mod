@@ -31,6 +31,7 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetPlayerLookTar
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
 import net.tslat.smartbrainlib.api.core.sensor.ExtendedSensor;
+import net.tslat.smartbrainlib.api.core.sensor.custom.UnreachableTargetSensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.HurtBySensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 
@@ -95,10 +96,10 @@ public abstract class ValorEntity extends PathfinderMob implements GeoEntity, En
 
     @Override
     public List<ExtendedSensor<ValorEntity>> getSensors() {
-        return ObjectArrayList.of(
-                new NearbyLivingEntitySensor<>(),   // This tracks nearby entities
-                new HurtBySensor<>()    // This tracks the last damage source and attacker
-        );
+        return ObjectArrayList.of(new NearbyLivingEntitySensor<ValorEntity>().setPredicate(
+                        (target, entity) -> target.isAlive() && entity.hasLineOfSight(
+                                target) && !(target instanceof ValorEntity)), new HurtBySensor<>(),
+                new UnreachableTargetSensor<>());
     }
 
     @Override
