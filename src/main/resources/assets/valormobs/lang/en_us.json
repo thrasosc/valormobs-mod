@@ -15,15 +15,4 @@
   "entity.valormobs.eagle_warrior": "Eagle Warrior",
   "entity.valormobs.aztec_warrior": "Aztec Warrior",
   "entity.valormobs.jaguar_warrior": "Jaguar Warrior",
-
-  "text.valormobs.error_text": [
-    "Oh Crab! What am I doing here? I am not the one you wish to speak to. When I show up it means that something went wrong, please report this to my creator."
-  ],
-
-  "text.valormobs.skullhaven_text_1": [
-    "Hark, oh intrepid traveler, you now stand within the dreaded confines of Skull Haven, a perilous dungeon where time's very essence has been entwined with ancient deities who hunger for the crimson nectar of life. Proceed with utmost caution, "
-  ],
-  "text.valormobs.skullhaven_text_2": [
-    "for these bloodthirsty beings have languished within these depths for countless eons, yearning for the sanguine essence of mortals. It is upon your shoulders to vanquish them, surmount their formidable trials, and ultimately confront their sovereign."
-  ]
 }

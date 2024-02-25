@@ -6,7 +6,6 @@ import mod.azure.azurelib.core.animatable.instance.SingletonAnimatableInstanceCa
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.object.PlayState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -21,7 +20,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
-import net.pixeldream.valormobs.screen.miscellaneous.ErrorScreen;
 
 public abstract class SpiritEntity extends PathfinderMob implements GeoEntity {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);

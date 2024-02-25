@@ -13,7 +13,6 @@ base {
 repositories {
 	maven { url "https://maven.terraformersmc.com/" }
 	maven { url 'https://libs.azuredoom.com:4443/mods' }
-	maven { url 'https://maven.wispforest.io' }
 	maven {
 		name = "SmartBrainLib (SBL) Maven Repo"
 		url = "https://dl.cloudsmith.io/public/tslat/sbl/maven/"
@@ -45,9 +44,6 @@ dependencies {
 	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}") { exclude group: "net.fabricmc.fabric-api" }
 
 	modImplementation "mod.azure.azurelib:azurelib-fabric-1.20.1:${project.azurelib_version}"
-
-	modImplementation "io.wispforest:owo-lib:${project.owo_version}"
-	include "io.wispforest:owo-sentinel:${project.owo_version}"
 
 	modImplementation "net.tslat.smartbrainlib:SmartBrainLib-fabric-${project.minecraft_version}:${project.sbl_version}"
 	modImplementation "net.tslat.smartbrainlib:SmartBrainLib-common-${project.minecraft_version}:${project.sbl_version}"
