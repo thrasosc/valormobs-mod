@@ -17,6 +17,7 @@ public class ItemGroupRegistry {
         entries.accept(ItemRegistry.MUMMY_SPAWN_EGG);
         entries.accept(ItemRegistry.AZTEC_WARRIOR_SPAWN_EGG);
         entries.accept(ItemRegistry.EAGLE_WARRIOR_SPAWN_EGG);
+        entries.accept(ItemRegistry.JAGUAR_WARRIOR_SPAWN_EGG);
     }).build());
 
     public static void initialize() {

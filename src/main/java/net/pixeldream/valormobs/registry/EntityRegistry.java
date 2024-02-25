@@ -12,6 +12,7 @@ import net.pixeldream.valormobs.ValorMobs;
 import net.pixeldream.valormobs.entity.tiereasy.MummyEntity;
 import net.pixeldream.valormobs.entity.tiernormal.AztecWarriorEntity;
 import net.pixeldream.valormobs.entity.tiernormal.EagleWarriorEntity;
+import net.pixeldream.valormobs.entity.tiernormal.JaguarWarriorEntity;
 import net.pixeldream.valormobs.entity.tierspirit.CrabEntity;
 import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
 import net.pixeldream.valormobs.entity.tierspirit.SkullHavenSpiritEntity;
@@ -47,6 +48,11 @@ public class EntityRegistry {
             new ResourceLocation(ValorMobs.MOD_ID, "eagle_warrior"),
             FabricEntityTypeBuilder.create(MobCategory.CREATURE, EagleWarriorEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build()
     );
+    public static final EntityType<JaguarWarriorEntity> JAGUAR_WARRIOR_ENTITY = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            new ResourceLocation(ValorMobs.MOD_ID, "jaguar_warrior"),
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, JaguarWarriorEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build()
+    );
 
     public static void initialize() {
         ValorMobs.LOGGER.info("Registering entities for " + ValorMobs.MOD_NAME);
@@ -56,5 +62,6 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(MUMMY_ENTITY, MummyEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(AZTEC_WARRIOR_ENTITY, AztecWarriorEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(EAGLE_WARRIOR_ENTITY, EagleWarriorEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(JAGUAR_WARRIOR_ENTITY, JaguarWarriorEntity.setAttributes());
     }
 }
