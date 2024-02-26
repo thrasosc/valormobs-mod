@@ -69,7 +69,7 @@ public class SetAnimalEntity extends HardEnemy {
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        playSound(SoundEvents.PARROT_HURT, 1.0f, 0.1f);
+        playSound(SoundEvents.PILLAGER_HURT, 1.0f, 0.1f);
         return null;
     }
 
