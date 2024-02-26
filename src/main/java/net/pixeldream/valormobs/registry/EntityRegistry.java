@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.pixeldream.valormobs.ValorMobs;
 import net.pixeldream.valormobs.entity.tiereasy.MummyEntity;
+import net.pixeldream.valormobs.entity.tierhard.SeaSerpentEntity;
 import net.pixeldream.valormobs.entity.tierhard.SetAnimalEntity;
 import net.pixeldream.valormobs.entity.tiernormal.AztecWarriorEntity;
 import net.pixeldream.valormobs.entity.tiernormal.EagleWarriorEntity;
@@ -57,7 +58,12 @@ public class EntityRegistry {
     public static final EntityType<SetAnimalEntity> SET_ANIMAL_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             new ResourceLocation(ValorMobs.MOD_ID, "seth"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SetAnimalEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build()
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SetAnimalEntity::new).dimensions(EntityDimensions.fixed(1.5f,3.1f)).build()
+    );
+    public static final EntityType<SeaSerpentEntity> SEA_SERPENT_ENTITY = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            new ResourceLocation(ValorMobs.MOD_ID, "sea_serpent"),
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SeaSerpentEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build()
     );
 
     public static void initialize() {
@@ -70,5 +76,6 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(EAGLE_WARRIOR_ENTITY, EagleWarriorEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(JAGUAR_WARRIOR_ENTITY, JaguarWarriorEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(SET_ANIMAL_ENTITY, SetAnimalEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(SEA_SERPENT_ENTITY, SeaSerpentEntity.setAttributes());
     }
 }

@@ -16,6 +16,7 @@ public class ItemRegistry {
     public static final Item EAGLE_WARRIOR_SPAWN_EGG = registerItem("eagle_warrior_spawn_egg", new SpawnEggItem(EntityRegistry.EAGLE_WARRIOR_ENTITY, 0x78734A, 0xC8A023, new FabricItemSettings().maxCount(64)));
     public static final Item JAGUAR_WARRIOR_SPAWN_EGG = registerItem("jaguar_warrior_spawn_egg", new SpawnEggItem(EntityRegistry.JAGUAR_WARRIOR_ENTITY, 0x78734A, 0xC8A023, new FabricItemSettings().maxCount(64)));
     public static final Item SET_ANIMAL_SPAWN_EGG = registerItem("seth_spawn_egg", new SpawnEggItem(EntityRegistry.SET_ANIMAL_ENTITY, 0x78734A, 0xC8A023, new FabricItemSettings().maxCount(64)));
+    public static final Item SEA_SERPENT_SPAWN_EGG = registerItem("sea_serpent_spawn_egg", new SpawnEggItem(EntityRegistry.SEA_SERPENT_ENTITY, 0x78734A, 0xC8A023, new FabricItemSettings().maxCount(64)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ValorMobs.MOD_ID, name), item);
