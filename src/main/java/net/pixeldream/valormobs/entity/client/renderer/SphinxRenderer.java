@@ -10,7 +10,7 @@ import net.pixeldream.valormobs.entity.tierhard.SphinxEntity;
 public class SphinxRenderer extends GeoEntityRenderer<SphinxEntity> {
     public SphinxRenderer(EntityRendererProvider.Context ctx) {
         super(ctx, new SphinxModel());
-        this.shadowRadius = 1.5f;
+        this.shadowRadius = 1.25f;
     }
 
     @Override
