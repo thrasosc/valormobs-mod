@@ -1,0 +1,125 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sphinx",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 8,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "sphinx",
+					"pivot": [0, 19.9, -4],
+					"rotation": [-2.5, 0, 0],
+					"cubes": [
+						{"origin": [-5, 13.9, -2], "size": [10, 12, 18], "uv": [72, 44]},
+						{"origin": [-6, 12.9, -16], "size": [12, 15, 14], "uv": [76, 15]},
+						{"origin": [-4.5, 17.9, -21], "size": [9, 11, 9], "pivot": [0, 21.9, -16], "rotation": [-45, 0, 0], "uv": [0, 84]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "sphinx",
+					"pivot": [0, 24.9, 16],
+					"rotation": [-20, 0, 0],
+					"cubes": [
+						{"origin": [-1.5, 22.9, 16], "size": [3, 3, 18], "uv": [47, 56]}
+					]
+				},
+				{
+					"name": "tail_part_two",
+					"parent": "tail",
+					"pivot": [0, 24.5, 34],
+					"rotation": [17.5, 0, 0],
+					"cubes": [
+						{"origin": [-1.5, 22.9, 34], "size": [3, 3, 17], "uv": [50, 36]}
+					]
+				},
+				{
+					"name": "leg4",
+					"parent": "sphinx",
+					"pivot": [4, 18.9, 12],
+					"rotation": [-20, 0, 0],
+					"cubes": [
+						{"origin": [1, 11.9, 7], "size": [6, 12, 12], "uv": [92, 75]},
+						{"origin": [1.5, 1.9, 16], "size": [5, 15, 6], "uv": [60, 87]}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "sphinx",
+					"pivot": [-4, 18.9, 12],
+					"rotation": [-20, 0, 0],
+					"cubes": [
+						{"origin": [-7, 11.9, 7], "size": [6, 12, 12], "uv": [92, 75], "mirror": true},
+						{"origin": [-6.5, 1.9, 16], "size": [5, 15, 6], "uv": [60, 87], "mirror": true}
+					]
+				},
+				{
+					"name": "right_wing2",
+					"parent": "sphinx",
+					"pivot": [4, 27.9, -10],
+					"rotation": [-75, 10, 25],
+					"cubes": [
+						{"origin": [2, 27.9, -12], "size": [4, 20, 4], "uv": [0, 104]},
+						{"origin": [3.9, 33.9, -8], "size": [0, 20, 9], "uv": [64, 99]},
+						{"origin": [3, 43.9, -28], "size": [2, 4, 16], "inflate": 0.01, "pivot": [4, 47.9, -12], "rotation": [52.5, 0, 0], "uv": [18, 108]},
+						{"origin": [3, 35.7, -21.9], "size": [2, 17, 3], "pivot": [4, 35.9, -21], "rotation": [22.5, 0, 0], "uv": [54, 108]},
+						{"origin": [4, 35.7, -23.9], "size": [0, 29, 23], "pivot": [4, 35.9, -21], "rotation": [22.5, 0, 0], "uv": [82, 76]}
+					]
+				},
+				{
+					"name": "right_wing",
+					"parent": "sphinx",
+					"pivot": [-5, 27.9, -10],
+					"rotation": [-75, -10, -25],
+					"cubes": [
+						{"origin": [-7, 27.9, -12], "size": [4, 20, 4], "uv": [0, 104], "mirror": true},
+						{"origin": [-5.1, 33.9, -8], "size": [0, 20, 9], "uv": [64, 99]},
+						{"origin": [-6, 43.9, -28], "size": [2, 4, 16], "inflate": 0.01, "pivot": [-5, 47.9, -12], "rotation": [52.5, 0, 0], "uv": [18, 108], "mirror": true},
+						{"origin": [-6, 35.7, -21.9], "size": [2, 17, 3], "pivot": [-5, 35.9, -21], "rotation": [22.5, 0, 0], "uv": [54, 108], "mirror": true},
+						{"origin": [-5, 35.7, -23.9], "size": [0, 29, 23], "pivot": [-5, 35.9, -21], "rotation": [22.5, 0, 0], "uv": [82, 76]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "sphinx",
+					"pivot": [0, 26.9, -21],
+					"cubes": [
+						{"origin": [-4.5, 22.9, -28], "size": [9, 9, 6], "inflate": 0.01, "uv": [98, 0]},
+						{"origin": [-5.5, 13.9, -24], "size": [11, 19, 10], "inflate": 0.01, "uv": [0, 55]},
+						{"origin": [5.5, 20.9, -24], "size": [0, 12, 10], "inflate": 0.01, "pivot": [5, 28.9, -24], "rotation": [0, 22.5, 0], "uv": [68, 6]},
+						{"origin": [-5.5, 20.9, -24], "size": [0, 12, 10], "inflate": 0.01, "pivot": [-5.5, 28.9, -24], "rotation": [0, -22.5, 0], "uv": [68, 6]},
+						{"origin": [-2.5, 16.9, -29], "size": [5, 8, 5], "inflate": 0.01, "uv": [31, 35]},
+						{"origin": [-3.5, 27.9, -27], "size": [7, 7, 17], "inflate": 0.01, "uv": [0, 31]},
+						{"origin": [0, 34.9, -27], "size": [0, 4, 17], "inflate": 0.01, "uv": [64, -16]},
+						{"origin": [-5, 28.9, -28.5], "size": [4, 2, 3], "uv": [0, 41], "mirror": true},
+						{"origin": [1, 28.9, -28.5], "size": [4, 2, 3], "uv": [0, 41]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "sphinx",
+					"pivot": [-8, 20.9, -10],
+					"rotation": [2.5, 0, 0],
+					"cubes": [
+						{"origin": [-9, -0.1, -13], "size": [5, 24, 7], "uv": [36, 77], "mirror": true}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "sphinx",
+					"pivot": [8, 20.9, -10],
+					"rotation": [2.5, 0, 0],
+					"cubes": [
+						{"origin": [4, -0.1, -13], "size": [5, 24, 7], "uv": [36, 77]}
+					]
+				}
+			]
+		}
+	]
+}

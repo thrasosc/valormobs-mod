@@ -12,6 +12,7 @@ import net.pixeldream.valormobs.ValorMobs;
 import net.pixeldream.valormobs.entity.tiereasy.MummyEntity;
 import net.pixeldream.valormobs.entity.tierhard.SeaSerpentEntity;
 import net.pixeldream.valormobs.entity.tierhard.SetAnimalEntity;
+import net.pixeldream.valormobs.entity.tierhard.SphinxEntity;
 import net.pixeldream.valormobs.entity.tiernormal.AztecWarriorEntity;
 import net.pixeldream.valormobs.entity.tiernormal.EagleWarriorEntity;
 import net.pixeldream.valormobs.entity.tiernormal.JaguarWarriorEntity;
@@ -65,6 +66,11 @@ public class EntityRegistry {
             new ResourceLocation(ValorMobs.MOD_ID, "sea_serpent"),
             FabricEntityTypeBuilder.create(MobCategory.CREATURE, SeaSerpentEntity::new).dimensions(EntityDimensions.fixed(5.0f,1.0f)).build()
     );
+    public static final EntityType<SphinxEntity> SPHINX_ENTITY = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            new ResourceLocation(ValorMobs.MOD_ID, "sphinx"),
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SphinxEntity::new).dimensions(EntityDimensions.fixed(3.0f,3.0f)).build()
+    );
 
     public static void initialize() {
         ValorMobs.LOGGER.info("Registering entities for " + ValorMobs.MOD_NAME);
@@ -77,5 +83,6 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(JAGUAR_WARRIOR_ENTITY, JaguarWarriorEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(SET_ANIMAL_ENTITY, SetAnimalEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(SEA_SERPENT_ENTITY, SeaSerpentEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(SPHINX_ENTITY, SphinxEntity.setAttributes());
     }
 }
