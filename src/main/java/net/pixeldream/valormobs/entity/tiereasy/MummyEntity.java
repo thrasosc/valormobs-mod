@@ -10,9 +10,9 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.EasyEnemy;
@@ -25,7 +25,7 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttack
 
 public class MummyEntity extends EasyEnemy {
 
-    public MummyEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public MummyEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         navigation = new AzureNavigation(this, level);
     }
@@ -64,24 +64,24 @@ public class MummyEntity extends EasyEnemy {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        playSound(SoundEvents.HUSK_AMBIENT, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_AMBIENT, 1.0f, 1.0f);
         return null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        playSound(SoundEvents.HUSK_HURT, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_HURT, 1.0f, 1.0f);
         return null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        playSound(SoundEvents.HUSK_DEATH, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_DEATH, 1.0f, 1.0f);
         return null;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        playSound(SoundEvents.HUSK_STEP, 1.0f, 0.5f);
+        playSound(SoundEvents.HUSK_STEP, 1.0f, 1.0f);
     }
 }

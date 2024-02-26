@@ -12,9 +12,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.pixeldream.valormobs.entity.NormalEnemy;
@@ -27,7 +27,7 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAtt
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 
 public class JaguarWarriorEntity extends NormalEnemy {
-    public JaguarWarriorEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public JaguarWarriorEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         navigation = new AzureNavigation(this, level);
     }
@@ -45,7 +45,7 @@ public class JaguarWarriorEntity extends NormalEnemy {
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(),
                 new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.45f),
-                new CustomMeleeAttack<>(20),
+                new CustomMeleeAttack<>(10),
                 new ReactToUnreachableTarget<>().timeBeforeReacting(entity -> 10).reaction((livingEntity, aBoolean) -> {
                     //                    if (aBoolean) {
                     this.addEffect(new MobEffectInstance(MobEffects.JUMP, 40, 2, false, false), this);
@@ -85,19 +85,19 @@ public class JaguarWarriorEntity extends NormalEnemy {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        playSound(SoundEvents.OCELOT_AMBIENT, 1.0f, 0.25f);
+        playSound(SoundEvents.OCELOT_AMBIENT, 1.0f, 0.1f);
         return null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        playSound(SoundEvents.OCELOT_HURT, 1.0f, 0.25f);
+        playSound(SoundEvents.OCELOT_HURT, 1.0f, 0.1f);
         return null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        playSound(SoundEvents.OCELOT_DEATH, 1.0f, 0.25f);
+        playSound(SoundEvents.OCELOT_DEATH, 1.0f, 0.1f);
         return null;
     }
 

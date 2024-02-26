@@ -7,6 +7,7 @@
   "item.valormobs.aztec_warrior_spawn_egg": "Aztec Warrior Spawn Egg",
   "item.valormobs.eagle_warrior_spawn_egg": "Eagle Warrior Spawn Egg",
   "item.valormobs.jaguar_warrior_spawn_egg": "Jaguar Warrior Spawn Egg",
+  "item.valormobs.seth_spawn_egg": "Set Animal Spawn Egg",
 
   "entity.valormobs.skullhaven_spirit": "Skull Haven Spirit",
   "entity.valormobs.crab": "Error Crab",
@@ -15,4 +16,5 @@
   "entity.valormobs.eagle_warrior": "Eagle Warrior",
   "entity.valormobs.aztec_warrior": "Aztec Warrior",
   "entity.valormobs.jaguar_warrior": "Jaguar Warrior",
+  "entity.valormobs.seth": "Set Animal"
 }

@@ -18,6 +18,7 @@ public class ItemGroupRegistry {
         entries.accept(ItemRegistry.AZTEC_WARRIOR_SPAWN_EGG);
         entries.accept(ItemRegistry.EAGLE_WARRIOR_SPAWN_EGG);
         entries.accept(ItemRegistry.JAGUAR_WARRIOR_SPAWN_EGG);
+        entries.accept(ItemRegistry.SET_ANIMAL_SPAWN_EGG);
     }).build());
 
     public static void initialize() {
