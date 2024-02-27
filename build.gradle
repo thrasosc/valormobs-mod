@@ -49,7 +49,6 @@ dependencies {
 	modImplementation "net.tslat.smartbrainlib:SmartBrainLib-common-${project.minecraft_version}:${project.sbl_version}"
 
 	modImplementation "org.ladysnake:blabber:${blabber_version}"
-	include "org.ladysnake:blabber:${blabber_version}"
 	// Blabber dependencies
 	include "me.lucko:fabric-permissions-api:${fpa_version}"
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
