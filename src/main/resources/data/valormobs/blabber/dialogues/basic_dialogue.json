@@ -7,23 +7,23 @@
   },
   "states": {
     "start": {
-      "text": "Do you want potatoes?",
+      "text": "<typewriter>Do you want potatoes?",
       "choices": [
-        { "text": "Yes please!", "next": "accept" },
-        { "text": "No thanks.", "next": "refuse" }
+        { "text": "<typewriter>Yes please!", "next": "accept" },
+        { "text": "<typewriter>No thanks.", "next": "refuse" }
       ]
     },
     "accept": {
-      "text": "Alright, have potatoes",
+      "text": "<typewriter>Alright, have potatoes",
       "choices": [
-        { "text": "ok", "next": "end_success" }
+        { "text": "<typewriter>ok", "next": "end_success" }
       ]
     },
     "refuse": {
-      "text": "Are you sure?",
+      "text": "<typewriter>Are you sure?",
       "choices": [
-        { "text": "I changed my mind.", "next": "accept" },
-        { "text": "yes", "next": "end_failure" }
+        { "text": "<typewriter>I changed my mind.", "next": "accept" },
+        { "text": "<typewriter>yes", "next": "end_failure" }
       ]
     },
     "end_success": {
