@@ -58,7 +58,7 @@ public class SetAnimalEntity extends HardEnemy {
         })).add(new AnimationController<>(this, "attackController", 3, event -> {
             swinging = false;
             return PlayState.STOP;
-        }).triggerableAnim("melee", new Random().nextInt(0, 3) == 0 ? DefaultAnimations.ATTACK_2 : DefaultAnimations.ATTACK));
+        }).triggerableAnim("attack", DefaultAnimations.ATTACK).triggerableAnim("attack_2", DefaultAnimations.ATTACK_2));
     }
 
     @Override

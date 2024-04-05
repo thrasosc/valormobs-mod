@@ -5,6 +5,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
+import net.pixeldream.valormobs.entity.tierhard.SetAnimalEntity;
 import net.tslat.smartbrainlib.api.core.behaviour.ExtendedBehaviour;
 
 import java.util.function.Consumer;
@@ -40,7 +41,12 @@ public abstract class CustomDelayedMeleeBehaviour<E extends ValorEntity> extends
             super.start(level, entity, gameTime);
             doDelayedAction(entity);
         }
-        entity.triggerAnim("attackController", "melee");
+        if (entity instanceof SetAnimalEntity) {
+            entity.triggerAnim("attackController", entity.getRandom().nextBoolean() ? "attack" : "attack_2");
+        }
+        else {
+            entity.triggerAnim("attackController", "melee");
+        }
         if (entity instanceof ExecutionerEntity executionerEntity) {
             executionerEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30, 100, false, false));
         }
