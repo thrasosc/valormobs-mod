@@ -1,6 +1,5 @@
 package net.pixeldream.valormobs.entity.tierhard;
 
-import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.object.PlayState;
@@ -12,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
 import net.minecraft.world.entity.monster.Monster;
@@ -28,11 +28,12 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
+import net.tslat.smartbrainlib.api.core.navigation.SmoothGroundNavigation;
 
 public class SeaSerpentEntity extends HardEnemy {
     public SeaSerpentEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
-        this.navigation = new AzureNavigation(this, level);
+        this.navigation = new WaterBoundPathNavigation(this, level);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.02F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
@@ -84,7 +85,9 @@ public class SeaSerpentEntity extends HardEnemy {
 
     @Override
     protected PathNavigation createNavigation(Level level) {
-        return new WaterBoundPathNavigation(this, level);
+        final var waterpathnavigator = new WaterBoundPathNavigation(this, level);
+        waterpathnavigator.setCanFloat(true);
+        return waterpathnavigator;
     }
 
 //    @Override
