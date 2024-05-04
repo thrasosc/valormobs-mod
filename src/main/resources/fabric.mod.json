@@ -12,7 +12,7 @@
 		"sources": "https://github.com/kyber-6/valormobs-mod"
 	},
 	"license": "GNU LGPLv3",
-	"icon": "assets/valormobs/icon.png",
+	"icon": "assets/valormobs/icon.gif",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
