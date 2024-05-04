@@ -1,6 +1,5 @@
 package net.pixeldream.valormobs.entity.tiereasy;
 
-import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.object.PlayState;

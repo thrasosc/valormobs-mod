@@ -1,6 +1,5 @@
 package net.pixeldream.valormobs.entity.tierhard;
 
-import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.object.PlayState;
@@ -23,8 +22,6 @@ import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 import net.tslat.smartbrainlib.api.core.navigation.SmoothGroundNavigation;
-
-import java.util.Random;
 
 public class SetAnimalEntity extends HardEnemy {
 
