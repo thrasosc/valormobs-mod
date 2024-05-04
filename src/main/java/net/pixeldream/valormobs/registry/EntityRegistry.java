@@ -64,12 +64,12 @@ public class EntityRegistry {
     public static final EntityType<SeaSerpentEntity> SEA_SERPENT_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             new ResourceLocation(ValorMobs.MOD_ID, "sea_serpent"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SeaSerpentEntity::new).dimensions(EntityDimensions.fixed(5.0f,1.0f)).build()
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SeaSerpentEntity::new).dimensions(EntityDimensions.fixed(3.0f,1.0f)).build()
     );
     public static final EntityType<SphinxEntity> SPHINX_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             new ResourceLocation(ValorMobs.MOD_ID, "sphinx"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SphinxEntity::new).dimensions(EntityDimensions.fixed(2.6f,2.6f)).build()
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SphinxEntity::new).dimensions(EntityDimensions.fixed(2.0f,2.0f)).build()
     );
 
     public static void initialize() {
