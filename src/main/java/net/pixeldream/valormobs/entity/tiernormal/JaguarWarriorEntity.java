@@ -25,11 +25,12 @@ import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.ReactToUnreachableTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
+import net.tslat.smartbrainlib.api.core.navigation.SmoothGroundNavigation;
 
 public class JaguarWarriorEntity extends NormalEnemy {
     public JaguarWarriorEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
-        navigation = new AzureNavigation(this, level);
+        navigation = new SmoothGroundNavigation(this, level);
     }
 
     public static AttributeSupplier.Builder setAttributes() {

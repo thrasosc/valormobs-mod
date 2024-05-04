@@ -33,6 +33,7 @@ public class EagleWarriorEntity extends NormalEnemy {
     public EagleWarriorEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         this.moveControl = new FlyingMoveControl(this, 20, true);
+        this.navigation = new FlyingPathNavigation(this, level);
     }
 
 //    public EagleWarriorEntity(EntityType<? extends PathfinderMob> entityType, Level level) {

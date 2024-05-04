@@ -22,6 +22,7 @@ import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
+import net.tslat.smartbrainlib.api.core.navigation.SmoothGroundNavigation;
 
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class SetAnimalEntity extends HardEnemy {
 
     public SetAnimalEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
-        navigation = new AzureNavigation(this, level);
+        navigation = new SmoothGroundNavigation(this, level);
     }
 
     public static AttributeSupplier.Builder setAttributes() {
