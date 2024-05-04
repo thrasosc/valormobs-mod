@@ -146,7 +146,7 @@ public abstract class ValorEntity extends Monster implements GeoEntity, SmartBra
         return new SmartBrainProvider<>(this);
     }
 
-    protected void produceParticles(ParticleOptions parameters) {
+    public void produceParticles(ParticleOptions parameters) {
         for(int i = 0; i < 5; ++i) {
             double d = this.random.nextGaussian() * 0.02;
             double e = this.random.nextGaussian() * 0.02;
