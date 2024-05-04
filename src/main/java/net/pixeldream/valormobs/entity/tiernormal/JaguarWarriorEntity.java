@@ -1,6 +1,5 @@
 package net.pixeldream.valormobs.entity.tiernormal;
 
-import mod.azure.azurelib.ai.pathing.AzureNavigation;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.object.PlayState;
@@ -8,8 +7,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -45,28 +42,23 @@ public class JaguarWarriorEntity extends NormalEnemy {
     public BrainActivityGroup<ValorEntity> getFightTasks() {
         return BrainActivityGroup.fightTasks(
                 new InvalidateAttackTarget<>(),
-                new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.45f),
+                new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.6f),
                 new CustomMeleeAttack<>(10),
                 new ReactToUnreachableTarget<>().timeBeforeReacting(entity -> 10).reaction((livingEntity, aBoolean) -> {
-                    //                    if (aBoolean) {
-                    this.addEffect(new MobEffectInstance(MobEffects.JUMP, 40, 2, false, false), this);
-//                            this.setJumping(true);
-//                            this.jumpFromGround();
+//                    Vec3 vec3 = this.getDeltaMovement();
+//                    this.setDeltaMovement(vec3.x, vec3.y + 1.0, vec3.z);
+
+//                    this.addEffect(new MobEffectInstance(MobEffects.JUMP, 40, 2, false, false), this);
                     this.jumpControl.jump();
-                    //                    }
                 })
-//                new FirstApplicableBehaviour<>(
-//                        new ReactToUnreachableTarget<>().timeBeforeReacting(entity -> 10).reaction((livingEntity, aBoolean) -> {
-//                            //                    if (aBoolean) {
-//                            this.addEffect(new MobEffectInstance(MobEffects.JUMP, 800, 5, false, false), this);
-////                            this.setJumping(true);
-////                            this.jumpFromGround();
-//                            this.jumpControl.jump();
-//                            //                    }
-//                        })
-//                )
         );
     }
+
+    @Override
+    protected float getJumpPower() {
+        return 0.84F * this.getBlockJumpFactor() + this.getJumpBoostPower();
+    }
+
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
