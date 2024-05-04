@@ -154,10 +154,4 @@ public abstract class ValorEntity extends Monster implements GeoEntity, SmartBra
             this.level().addParticle(parameters, this.getRandomX(1.0), this.getRandomY() + 1.0, this.getRandomZ(1.0), d, e, f);
         }
     }
-
-    @Override
-    public void die(DamageSource damageSource) {
-        produceParticles(ParticleTypes.POOF);
-        super.die(damageSource);
-    }
 }
