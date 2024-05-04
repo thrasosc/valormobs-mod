@@ -18,6 +18,7 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.pixeldream.valormobs.ValorMobs;
 import net.pixeldream.valormobs.entity.NormalEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
@@ -79,7 +80,7 @@ public class EagleWarriorEntity extends NormalEnemy {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "livingController", 3, event -> {
-//            if (event.isMoving()) {
+//            if (this.getDeltaMovement().y > 0) {
 //                return event.setAndContinue(DefaultAnimations.FLY);
 //            }
 //            return event.setAndContinue(DefaultAnimations.IDLE);
