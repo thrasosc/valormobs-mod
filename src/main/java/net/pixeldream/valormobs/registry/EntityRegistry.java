@@ -69,7 +69,7 @@ public class EntityRegistry {
     public static final EntityType<SphinxEntity> SPHINX_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             new ResourceLocation(ValorMobs.MOD_ID, "sphinx"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SphinxEntity::new).dimensions(EntityDimensions.fixed(3.0f,3.0f)).build()
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SphinxEntity::new).dimensions(EntityDimensions.fixed(2.6f,2.6f)).build()
     );
 
     public static void initialize() {
