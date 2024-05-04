@@ -22,12 +22,21 @@ import net.minecraft.world.phys.Vec3;
 import net.pixeldream.valormobs.entity.HardEnemy;
 import net.pixeldream.valormobs.entity.ValorEntity;
 import net.pixeldream.valormobs.entity.constant.DefaultAnimations;
+import net.pixeldream.valormobs.entity.task.CustomMeleeAttack;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
+import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
+import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomSwimTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetPlayerLookTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
 import net.tslat.smartbrainlib.api.core.navigation.SmoothGroundNavigation;
 
 public class SeaSerpentEntity extends HardEnemy {
@@ -66,7 +75,7 @@ public class SeaSerpentEntity extends HardEnemy {
                 // Set the walk target to the attack target
                 new SetWalkTargetToAttackTarget<>().speedMod((owner, target) -> 0.9f),
                 // Melee attack the target if close enough
-                new AnimatableMeleeAttack<>(10)
+                new CustomMeleeAttack<>(10)
         );
     }
 
@@ -81,6 +90,30 @@ public class SeaSerpentEntity extends HardEnemy {
             swinging = false;
             return PlayState.STOP;
         }).triggerableAnim("melee", DefaultAnimations.MELEE));
+    }
+
+    @Override
+    public BrainActivityGroup<ValorEntity> getIdleTasks() {  // These are the tasks that run when the mob isn't doing anything else (usually)
+        // Run only one of the below behaviours, trying each one in order. Include the generic type because JavaC is silly
+        return BrainActivityGroup.idleTasks(
+                new FirstApplicableBehaviour<SeaSerpentEntity>(
+                        // Set the attack target and walk target based on nearby entities
+                        new TargetOrRetaliate<>().alertAlliesWhen((mob, entity) -> this.isAggressive()).attackablePredicate(
+                                entity -> entity.isAlive() && (!(entity instanceof Player player) || !player.isCreative()) && !(entity instanceof ValorEntity)
+                        ),
+                        // Set the look target for the nearest player
+                        new SetPlayerLookTarget<>(),
+                        // Set a random look target
+                        new SetRandomLookTarget<>()
+                ),
+                // Run a random task from the below options
+                new OneRandomBehaviour<>(
+                        // Set a random walk target to a nearby position
+                        new SetRandomSwimTarget<>().setRadius(20).speedModifier(0.25f),
+                        // Do nothing for 30-100 ticks
+                        new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 100))
+                )
+        );
     }
 
     @Override
@@ -123,20 +156,6 @@ public class SeaSerpentEntity extends HardEnemy {
 //        playSound(SoundEvents.DOLPHIN_SWIM, 1.0f, 0.5f);
 //        return null;
 //    }
-
-    @Override
-    public void travel(Vec3 vec3) {
-        if (this.isEffectiveAi() && this.isInWater()) {
-            this.moveRelative(this.getSpeed(), vec3);
-            this.move(MoverType.SELF, this.getDeltaMovement());
-            this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
-            if (this.getTarget() == null) {
-                this.setDeltaMovement(this.getDeltaMovement().add(0.0, -0.005, 0.0));
-            }
-        } else {
-            super.travel(vec3);
-        }
-    }
 
     @Override
     public boolean canBreatheUnderwater() {
