@@ -23,9 +23,9 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAtt
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 import net.tslat.smartbrainlib.api.core.navigation.SmoothGroundNavigation;
 
-public class SetAnimalEntity extends HardEnemy {
+public class SetServantEntity extends HardEnemy {
 
-    public SetAnimalEntity(EntityType<? extends Monster> entityType, Level level) {
+    public SetServantEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         navigation = new SmoothGroundNavigation(this, level);
     }

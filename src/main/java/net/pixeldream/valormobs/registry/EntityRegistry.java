@@ -11,7 +11,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.pixeldream.valormobs.ValorMobs;
 import net.pixeldream.valormobs.entity.tiereasy.MummyEntity;
 import net.pixeldream.valormobs.entity.tierhard.SeaSerpentEntity;
-import net.pixeldream.valormobs.entity.tierhard.SetAnimalEntity;
+import net.pixeldream.valormobs.entity.tierhard.SetServantEntity;
 import net.pixeldream.valormobs.entity.tierhard.SphinxEntity;
 import net.pixeldream.valormobs.entity.tiernormal.AztecWarriorEntity;
 import net.pixeldream.valormobs.entity.tiernormal.EagleWarriorEntity;
@@ -56,10 +56,10 @@ public class EntityRegistry {
             new ResourceLocation(ValorMobs.MOD_ID, "jaguar_warrior"),
             FabricEntityTypeBuilder.create(MobCategory.CREATURE, JaguarWarriorEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build()
     );
-    public static final EntityType<SetAnimalEntity> SET_ANIMAL_ENTITY = Registry.register(
+    public static final EntityType<SetServantEntity> SET_ANIMAL_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             new ResourceLocation(ValorMobs.MOD_ID, "seth"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SetAnimalEntity::new).dimensions(EntityDimensions.fixed(1.5f,3.1f)).build()
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SetServantEntity::new).dimensions(EntityDimensions.fixed(1.5f,3.1f)).build()
     );
     public static final EntityType<SeaSerpentEntity> SEA_SERPENT_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
@@ -81,7 +81,7 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(AZTEC_WARRIOR_ENTITY, AztecWarriorEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(EAGLE_WARRIOR_ENTITY, EagleWarriorEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(JAGUAR_WARRIOR_ENTITY, JaguarWarriorEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(SET_ANIMAL_ENTITY, SetAnimalEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(SET_ANIMAL_ENTITY, SetServantEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(SEA_SERPENT_ENTITY, SeaSerpentEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(SPHINX_ENTITY, SphinxEntity.setAttributes());
     }

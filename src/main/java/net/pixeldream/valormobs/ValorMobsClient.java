@@ -15,7 +15,7 @@ public class ValorMobsClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityRegistry.AZTEC_WARRIOR_ENTITY, AztecWarriorRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.EAGLE_WARRIOR_ENTITY, EagleWarriorRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.JAGUAR_WARRIOR_ENTITY, JaguarWarriorRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.SET_ANIMAL_ENTITY, SetAnimalRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.SET_ANIMAL_ENTITY, SetServantRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SEA_SERPENT_ENTITY, SeaSerpentRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.SPHINX_ENTITY, SphinxRenderer::new);
     }
