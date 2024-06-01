@@ -35,10 +35,9 @@
 		"fabric-api": "*",
 		"azurelib": ">=2.0.20",
 		"blabber": ">=1.4.2-mc1.20.1",
-		"smartbrainlib": ">=1.13",
-		"textanimator": ">=2.3.0"
+		"smartbrainlib": ">=1.13"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"textanimator": ">=2.3.0"
 	}
 }
