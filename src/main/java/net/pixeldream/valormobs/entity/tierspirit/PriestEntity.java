@@ -10,6 +10,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.pixeldream.valormobs.entity.SpiritualEntity;
 import org.ladysnake.blabber.Blabber;
+import org.ladysnake.blabber.impl.client.BlabberClient;
+import org.ladysnake.blabber.impl.common.settings.BlabberSetting;
 
 import static net.pixeldream.valormobs.ValorMobs.MOD_ID;
 
@@ -20,14 +22,18 @@ public class PriestEntity extends SpiritualEntity {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+        // check if finished dialogue then despawn entity
+    }
+
+    @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!level().isClientSide()) {
             ServerPlayer serverPlayer = player.getServer().getPlayerList().getPlayer(player.getUUID());
             Blabber.startDialogue(serverPlayer, new ResourceLocation(MOD_ID, "intro"), this);
+            this.kill();
         }
-//        if (level().isClientSide) {
-//            Minecraft.getInstance().setScreen(new SkullHavenScreen1());
-//        }
         return super.mobInteract(player, hand);
     }
 }
