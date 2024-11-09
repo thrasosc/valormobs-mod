@@ -11,7 +11,6 @@ import net.pixeldream.valormobs.ValorMobs;
 
 public class ItemGroupRegistry {
     public static final CreativeModeTab ITEM_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(ValorMobs.MOD_ID, ValorMobs.MOD_ID), FabricItemGroup.builder().title(Component.translatable("itemgroup." + ValorMobs.MOD_ID)).icon(() -> new ItemStack(ItemRegistry.CREATIVE_TAB_ICON)).displayItems((displayContext, entries) -> {
-        entries.accept(ItemRegistry.SKULLHAVEN_SPIRIT_SPAWN_EGG);
         entries.accept(ItemRegistry.EXECUTIONER_SPAWN_EGG);
         entries.accept(ItemRegistry.MUMMY_SPAWN_EGG);
         entries.accept(ItemRegistry.AZTEC_WARRIOR_SPAWN_EGG);

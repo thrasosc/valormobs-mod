@@ -1,7 +1,6 @@
 {
   "itemgroup.valormobs": "Valor Mobs",
 
-  "item.valormobs.skullhaven_spirit_spawn_egg": "Skull Haven Spirit Spawn Egg",
   "item.valormobs.executioner_spawn_egg": "Executioner Spawn Egg",
   "item.valormobs.mummy_spawn_egg": "Mummy Spawn Egg",
   "item.valormobs.aztec_warrior_spawn_egg": "Aztec Warrior Spawn Egg",
@@ -11,7 +10,6 @@
   "item.valormobs.sea_serpent_spawn_egg": "Sea Serpent Spawn Egg",
   "item.valormobs.sphinx_spawn_egg": "Sphinx Spawn Egg",
 
-  "entity.valormobs.skullhaven_spirit": "Skull Haven Spirit",
   "entity.valormobs.crab": "Error Crab",
   "entity.valormobs.executioner": "Executioner",
   "entity.valormobs.mummy": "Mummy",

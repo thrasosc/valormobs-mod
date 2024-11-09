@@ -18,13 +18,13 @@ import net.pixeldream.valormobs.entity.tiernormal.EagleWarriorEntity;
 import net.pixeldream.valormobs.entity.tiernormal.JaguarWarriorEntity;
 import net.pixeldream.valormobs.entity.tierspirit.CrabEntity;
 import net.pixeldream.valormobs.entity.tierhard.ExecutionerEntity;
-import net.pixeldream.valormobs.entity.tierspirit.SkullHavenSpiritEntity;
+import net.pixeldream.valormobs.entity.tierspirit.PriestEntity;
 
 public class EntityRegistry {
-    public static final EntityType<SkullHavenSpiritEntity> SKULLHAVEN_SPIRIT_ENTITY = Registry.register(
+    public static final EntityType<PriestEntity> PRIEST_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
-            new ResourceLocation(ValorMobs.MOD_ID, "skullhaven_spirit"),
-            FabricEntityTypeBuilder.create(MobCategory.CREATURE, SkullHavenSpiritEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.8f)).build()
+            new ResourceLocation(ValorMobs.MOD_ID, "priest"),
+            FabricEntityTypeBuilder.create(MobCategory.CREATURE, PriestEntity::new).dimensions(EntityDimensions.fixed(2.0f,1.0f)).build()
     );
     public static final EntityType<CrabEntity> CRAB_ENTITY = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
@@ -74,7 +74,7 @@ public class EntityRegistry {
 
     public static void initialize() {
         ValorMobs.LOGGER.info("Registering entities for " + ValorMobs.MOD_NAME);
-        FabricDefaultAttributeRegistry.register(SKULLHAVEN_SPIRIT_ENTITY, SkullHavenSpiritEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(PRIEST_ENTITY, PriestEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(CRAB_ENTITY, CrabEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(EXECUTIONER_ENTITY, ExecutionerEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MUMMY_ENTITY, MummyEntity.setAttributes());

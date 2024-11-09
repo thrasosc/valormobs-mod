@@ -10,7 +10,6 @@ import net.pixeldream.valormobs.ValorMobs;
 
 public class ItemRegistry {
     public static final Item CREATIVE_TAB_ICON = registerItem("creative_tab_icon", new Item(new FabricItemSettings().maxCount(1)));
-    public static final Item SKULLHAVEN_SPIRIT_SPAWN_EGG = registerItem("skullhaven_spirit_spawn_egg", new SpawnEggItem(EntityRegistry.SKULLHAVEN_SPIRIT_ENTITY, 0xE3E3E3, 0xB8B8B8, new FabricItemSettings().maxCount(64)));
     public static final Item EXECUTIONER_SPAWN_EGG = registerItem("executioner_spawn_egg", new SpawnEggItem(EntityRegistry.EXECUTIONER_ENTITY, 0xD5D0C1, 0x484237, new FabricItemSettings().maxCount(64)));
     public static final Item MUMMY_SPAWN_EGG = registerItem("mummy_spawn_egg", new SpawnEggItem(EntityRegistry.MUMMY_ENTITY, 0x655B4E, 0x69584A, new FabricItemSettings().maxCount(64)));
     public static final Item AZTEC_WARRIOR_SPAWN_EGG = registerItem("aztec_warrior_spawn_egg", new SpawnEggItem(EntityRegistry.AZTEC_WARRIOR_ENTITY, 0xD5E2D1, 0x5A956A, new FabricItemSettings().maxCount(64)));

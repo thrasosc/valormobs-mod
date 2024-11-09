@@ -8,14 +8,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.pixeldream.valormobs.entity.SpiritEntity;
+import net.pixeldream.valormobs.entity.SpiritualEntity;
 import org.ladysnake.blabber.Blabber;
 
 import static net.pixeldream.valormobs.ValorMobs.MOD_ID;
 
-public class SkullHavenSpiritEntity extends SpiritEntity {
+public class PriestEntity extends SpiritualEntity {
 
-    public SkullHavenSpiritEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public PriestEntity(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -23,7 +23,7 @@ public class SkullHavenSpiritEntity extends SpiritEntity {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!level().isClientSide()) {
             ServerPlayer serverPlayer = player.getServer().getPlayerList().getPlayer(player.getUUID());
-            Blabber.startDialogue(serverPlayer, new ResourceLocation(MOD_ID, "basic_dialogue"), this);
+            Blabber.startDialogue(serverPlayer, new ResourceLocation(MOD_ID, "intro"), this);
         }
 //        if (level().isClientSide) {
 //            Minecraft.getInstance().setScreen(new SkullHavenScreen1());
